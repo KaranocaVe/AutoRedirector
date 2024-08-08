@@ -11,7 +11,6 @@ function loadRules() {
     });
 }
 
-// 将规则添加到网页的 DOM 中
 function displayRules(rules) {
     const rulesContainer = document.createElement('div');
     rulesContainer.id = 'rulesContainer';
@@ -24,5 +23,4 @@ function displayRules(rules) {
     });
 }
 
-// 页面加载时调用 loadRules 函数
 document.addEventListener('DOMContentLoaded', loadRules);

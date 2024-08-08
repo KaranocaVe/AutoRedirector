@@ -23,56 +23,8 @@ class Rule {
     }
 }
 
-
-async function fetchData(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            console.error('Fetch failed:', response.status);
-        }
-        const data = await response.text();
-        console.log(data);
-        return data;
-    } catch (error) {
-        console.error('Fetch error:', error);
-    }
-}
-
-
-async function DownloadRulesFromWeb(url) {
-    let rules = [];
-    let text = await fetchData(url);
-    let lines = text.split('\n');
-    let count = 0;
-    for (let line of lines) {
-        if (line.length === 0 || line.startsWith('#')) {
-
-        } else if (line.startsWith('^')) {
-            console.log('Rule:', line);
-            let rule = Rule.fromString(line);
-            if (rule) {
-                rules.push(rule);
-                count++;
-            }
-        } else {
-            console.log('Invalid rule:', line);
-        }
-    }
-    console.log(count, 'rules saved');
-    return rules;
-}
-
-function StoreRules(rules) {
-    let temp = rules.map(rule => ({
-        Regex: rule.Regex.toString(),
-        Redirect: rule.Redirect
-    }));
-    chrome.storage.local.set({rules: temp}).then(r =>console.log('Rules saved')); 
-}
-
-
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-let temp= DownloadRulesFromWeb('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/QuantumultX/Redirect/Redirect.conf')
-    .then(rules => StoreRules(rules));
+/*let temp= DownloadRulesFromWeb('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/QuantumultX/Redirect/Redirect.conf')
+    .then(rules => StoreRules(rules));*/
     }
 );

@@ -7,9 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 class Rule {
     constructor(Regex, Redirect) {
-        this.Regex = new RegExp(Regex);
-        this.Redirect = Redirect;
-        console.log('Rule:', this.Regex, '->', this.Redirect);
+        let existingGroups = (Regex.match(/\((?!\?)/g) || []).length;
+        let newGroupNumber = existingGroups + 1;
+        this.Regex= new RegExp(Regex+ `(.+?)`);
+        this.Redirect=Redirect+ `$${newGroupNumber}`;
     }
 
     static fromString(ruleString) {

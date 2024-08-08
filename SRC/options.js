@@ -1,8 +1,10 @@
-// 从 chrome.storage.local 中读取规则
 function loadRules() {
     chrome.storage.local.get(['rules'], function(result) {
         if (result.rules) {
-            displayRules(result.rules);
+            displayRules(result.rules.map(rule => ({
+                Regex: new RegExp(rule.Regex),
+                Redirect: rule.Redirect
+            })));
         } else {
             console.log('No rules found in storage.');
         }
@@ -17,7 +19,7 @@ function displayRules(rules) {
 
     rules.forEach(rule => {
         const ruleElement = document.createElement('div');
-        ruleElement.textContent = `Regex: ${rule.Regex}, Redirect: ${rule.Redirect}`;
+        ruleElement.textContent = `Regex: ${rule.Regex.toString()}, Redirect: ${rule.Redirect}`;
         rulesContainer.appendChild(ruleElement);
     });
 }

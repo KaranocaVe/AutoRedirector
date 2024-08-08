@@ -1,0 +1,25 @@
+{
+  "name": "Auto Redirector",
+  "short_name": "AutoRedirector",
+  "version": "0.1",
+  "description": "__MSG_ext_description__",
+  "author": "KaranocaVe",
+  "homepage_url": "https://github.com/KaranocaVe/AutoRedirector",
+  "options_page": "options.html",
+  "permissions": [
+    "notifications",
+    "storage",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "host_permissions": [
+    "http://*/",
+    "https://*/"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "default_locale": "zh_CN",
+  "manifest_version": 3
+}

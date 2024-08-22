@@ -1,17 +1,19 @@
 export class Rule {
     constructor(Regex,Redirect) {
         try {
-            this.Regex = new RegExp(Regex);
+            this.Regex = Regex;
             this.Redirect = Redirect;
         }catch (e){
             console.error('Failed to create rule:', e);
         }
     }
     match(url) {
-        return this.Regex.test(url);
+        let reg=new RegExp(this.Regex);
+        return reg.test(url);
     }
     getRedirect(url) {
-        return url.replace(this.Regex,this.Redirect);
+        let reg=new RegExp(this.Regex);
+        return url.replace(reg,this.Redirect);
     }
 }
 

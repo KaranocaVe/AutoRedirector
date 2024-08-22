@@ -3,7 +3,7 @@
 import {RulesGroup} from "./regworker.js";
 import {RuleGroupPool} from "./storage.js";
 
-class Updater {
+export class Updater {
     static async streamToText(stream) {
         const reader = stream.getReader();
         const decoder = new TextDecoder("utf-8");
@@ -47,9 +47,6 @@ class Updater {
         let data = await response.body
         let text = await this.streamToText(data);
         text = await this.PreProcess(text);
-        var CurrentPool = new RuleGroupPool();
-        CurrentPool.AddRuleGroup(new RulesGroup(url,text));
+        await RuleGroupPool.AddRuleGroup(new RulesGroup(url, text));
     }
 }
-
-Updater.AddFromURL("https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/QuantumultX/Redirect/Redirect.conf")

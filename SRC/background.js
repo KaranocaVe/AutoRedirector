@@ -1,25 +1,5 @@
-class Rule {
-    constructor(Regex, Redirect) {
-        this.Regex = new RegExp(Regex);
-        this.Redirect = Redirect;
-    }
-
-    static fromString(ruleString) {
-        const parts = ruleString.split(' ');
-        if (parts.length !== 4 || parts[1] !== 'url' || parts[2] !== '302') {
-            return null;
-        }
-        return new Rule(parts[0], parts[3]);
-    }
-
-    match(url) {
-        return this.Regex.test(url);
-    }
-
-    getRedirect(url) {
-        return url.replace(this.Regex, this.Redirect);
-    }
-}
+//background.js
+importScripts('regworker.js');
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     /*chrome.storage.local.get(['rules'], function (result) {

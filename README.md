@@ -1,7 +1,7 @@
 # AutoRedirector
 
-ÕâÊÇÒ»¸ö´¦ÓÚÔçÆÚ½×¶ÎµÄChrome²å¼ş£¬ÓÃÓÚ×Ô¶¯ÖØ¶¨ÏòÍøÒ³£¬ÌáÉıÍøÒ³ä¯ÀÀÌåÑé¡£
+è¿™æ˜¯ä¸€ä¸ªå¤„äºæ—©æœŸé˜¶æ®µçš„Chromeæ’ä»¶ï¼Œç”¨äºè‡ªåŠ¨é‡å®šå‘ç½‘é¡µï¼Œæå‡ç½‘é¡µæµè§ˆä½“éªŒã€‚
 
-ÀıÈç½«`https://learn.microsoft.com/en-us/windows/win32/shell/handlers#implementing-shell-extension-handlers` ×Ô¶¯ÖØ¶¨Ïòµ½ `https://learn.microsoft.com/zh-cn/windows/win32/shell/handlers#implementing-shell-extension-handlers` ¡£
+ä¾‹å¦‚å°†`https://learn.microsoft.com/en-us/windows/win32/shell/handlers#implementing-shell-extension-handlers` è‡ªåŠ¨é‡å®šå‘åˆ° `https://learn.microsoft.com/zh-cn/windows/win32/shell/handlers#implementing-shell-extension-handlers` ã€‚
 
-Ëû»¹Ô¤¼ÆÖ§³Ö¹æÔò¶©ÔÄ¹¦ÄÜ£¬²¢ÇÒÄÜ¼æÈİÏÖÓĞµÄsurge/quanx¹æÔò¡£
+ä»–è¿˜é¢„è®¡æ”¯æŒè§„åˆ™è®¢é˜…åŠŸèƒ½ï¼Œå¹¶ä¸”èƒ½å…¼å®¹ç°æœ‰çš„surge/quanxè§„åˆ™ã€‚

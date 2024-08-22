@@ -77,7 +77,7 @@ function StoreRules(rules) {
     chrome.storage.local.set({rules: temp}).then(r =>console.log('Rules saved'));
 }
 
-// 定义函数，接受URL作为参数
+// 瀹氫箟鍑芥暟锛屾帴鍙桿RL浣滀负鍙傛暟
 function StartAct(url) {
     let temp= DownloadRulesFromWeb(url)
         .then(rules => StoreRules(rules));

@@ -24,6 +24,5 @@ export class RulesGroup {
             let keys=line.toString().split(' ');
             this.rules.push(new Rule(keys[0],keys[1]));
         }
-        console.log('RulesGroup created:', this);
     }
 }

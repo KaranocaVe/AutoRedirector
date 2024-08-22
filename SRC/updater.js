@@ -1,6 +1,7 @@
 //updater.js
 
 import {RulesGroup} from "./regworker.js";
+import {RuleGroupPool} from "./storage.js";
 
 class Updater {
     static async streamToText(stream) {
@@ -37,7 +38,7 @@ class Updater {
         return rules;
     }
 
-    static async UpdateFromURL(url) {
+    static async AddFromURL(url) {
         let response = await fetch(url);
         if (!response.ok) {
             console.error('Failed to fetch rules from:', url);
@@ -46,8 +47,9 @@ class Updater {
         let data = await response.body
         let text = await this.streamToText(data);
         text = await this.PreProcess(text);
-        return new RulesGroup(url,text);
+        var CurrentPool = new RuleGroupPool();
+        CurrentPool.AddRuleGroup(new RulesGroup(url,text));
     }
 }
 
-console.log(Updater.UpdateFromURL("https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/QuantumultX/Redirect/Redirect.conf"));
+Updater.AddFromURL("https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/QuantumultX/Redirect/Redirect.conf")

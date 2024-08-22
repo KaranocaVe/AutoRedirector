@@ -1,5 +1,5 @@
 function loadRules() {
-    chrome.storage.local.get(['rules'], function(result) {
+    chrome.storage.local.get(['rules'], function (result) {
         if (result.rules) {
             displayRules(result.rules.map(rule => ({
                 Regex: new RegExp(rule.Regex),
